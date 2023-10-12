@@ -22,7 +22,7 @@ test:
       task_model:
         name: "SiamTrack"
         SiamTrack:
-          pretrain_model_path: "snapshots/stnet/fe240.pkl"
+          pretrain_model_path: "/mnt/e/Data/Github/CVPR2022_STNet/snapshots/stnet/fe240.pkl"
     pipeline:
       name: "STNetTracker"
       STNetTracker:

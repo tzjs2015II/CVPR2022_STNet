@@ -1,5 +1,8 @@
 from __future__ import absolute_import, print_function
 
+import sys
+sys.path.append('/mnt/e/Data/Github/CVPR2022_STNet/')
+
 import glob
 import os
 import pickle
@@ -50,6 +53,7 @@ class GOT10k(object):
         if list_file is None:
             list_file = os.path.join(root_dir, subset, 'list.txt')
         if check_integrity:
+            print("输出值",root_dir, subset, list_file)
             self._check_integrity(root_dir, subset, list_file)
 
         with open(list_file, 'r') as f:
@@ -203,6 +207,7 @@ class GOT10k(object):
             GOT10k.__name__, subset))
         for seq_name in tqdm(self.seq_names):
             seq_dir = os.path.join(root_dir, subset, seq_name)
+            print("中间变量",seq_dir)
             img_files, anno, meta = self.load_single_sequence(seq_dir)
             GOT10k.data_dict[self.subset][seq_name] = dict(img_files=img_files,
                                                            anno=anno,
@@ -215,10 +220,11 @@ class GOT10k(object):
     def load_single_sequence(self, seq_dir):
         img_files_pos = sorted(glob.glob(os.path.join(seq_dir, 'pos', '*.jpg')))
         img_files_neg = sorted(glob.glob(os.path.join(seq_dir, 'neg', '*.jpg')))
+        # anno = np.loadtxt(os.path.join(seq_dir, "groundtruth_rect.txt"),
+        #                   delimiter=' ')
+        
         anno = np.loadtxt(os.path.join(seq_dir, "groundtruth_rect.txt"),
-                          delimiter=' ')
-        # anno = np.loadtxt(os.path.join(seq_dir, "groundtruth.txt"),
-        #                   delimiter=',')
+                          delimiter=',')
         if self.subset == 'test' and anno.ndim == 1:
             assert len(anno) == 4
             anno = anno[np.newaxis, :]

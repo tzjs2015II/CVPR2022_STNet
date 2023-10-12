@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*
-
+import sys
+sys.path.append('/mnt/e/Data/Github/CVPR2022_STNet')
 from copy import deepcopy
 
 import numpy as np

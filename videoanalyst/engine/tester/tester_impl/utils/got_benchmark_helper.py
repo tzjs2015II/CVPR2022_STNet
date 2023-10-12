@@ -113,6 +113,7 @@ class PipelineTracker(object):
                 image_pos.append(
                     cv2.imread(img_file.split('.')[0].replace('img_120_split', 'img_120_5_split') + '_{}.jpg'.format(i),
                                cv2.IMREAD_COLOR))
+                print('test',img_file.split('.')[0].replace('img_120_split', 'img_120_5_split') + '_{}.jpg'.format(i))
  
                 image_neg.append(cv2.imread(
                     img_files_neg[f].split('.')[0].replace('img_120_split', 'img_120_5_split') + '_{}.jpg'.format(i),
@@ -126,5 +127,5 @@ class PipelineTracker(object):
 
             if visualize:
                 show_frame(image_pos, boxes[f, :])
-        # print(np.mean(times))
+        print(np.mean(times))
         return boxes, times

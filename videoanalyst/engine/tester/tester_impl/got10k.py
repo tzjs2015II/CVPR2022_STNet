@@ -28,7 +28,7 @@ class GOT10kTester(TesterBase):
     """
     extra_hyper_params = dict(
         device_num=1,
-        data_root="/data/img_120_split",
+        data_root="/mnt/e/Data/Github/CVPR2022_STNet/data/img_120_split/",
         subsets=["val"],  # (val|test)
     )
 
@@ -58,6 +58,8 @@ class GOT10kTester(TesterBase):
                                      dataset_name)
             result_dir = osp.join(save_root_dir, "result")
             report_dir = osp.join(save_root_dir, "report")
+            
+            
 
             experiment = ExperimentGOT10k(root_dir,
                                           subset=subset,

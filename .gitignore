@@ -1,0 +1,8 @@
+
+data/img_120_split/val/00197_driving_outdoor3/groundtruth_rect.txt
+/data
+*.jpg
+*.pkl
+*.zip
+CVPR2022_STNet.code-workspace
+*.pyc

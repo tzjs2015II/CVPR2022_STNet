@@ -29,7 +29,7 @@ class EVENTTester(TesterBase):
     """
     extra_hyper_params = dict(
         device_num=1,
-        data_root="/data/img_120_split",
+        data_root="/mnt/e/Data/Github/CVPR2022_STNet/data/img_120_split",
         subsets=["val"],  # (val|test)
     )
 
@@ -69,6 +69,7 @@ class EVENTTester(TesterBase):
                 dev = all_devs[0]
                 self._pipeline.set_device(dev)
                 pipeline_tracker = PipelineTracker(tracker_name, self._pipeline)
+                print("测试3输出",pipeline_tracker)
                 experiment.run(pipeline_tracker)
             # multi-worker
             else:
